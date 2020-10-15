@@ -1,0 +1,8 @@
+prefix=/home/lapyr/gimbal/install
+
+Name: brazo
+Description: Description of brazo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

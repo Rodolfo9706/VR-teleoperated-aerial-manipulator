@@ -1,0 +1,5 @@
+{
+	"op": "advertise",
+	"topic": "brazo_data",
+	"type": "std_msgs/String"
+}

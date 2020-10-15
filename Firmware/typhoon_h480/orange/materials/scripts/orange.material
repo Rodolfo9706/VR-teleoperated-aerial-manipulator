@@ -1,0 +1,15 @@
+material orange
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture orange.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+    }
+  }
+}

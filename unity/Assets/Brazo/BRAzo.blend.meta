@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 1f86606e22acadc4f8facddeb704ecb3
+timeCreated: 1532371873
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Empty
+    100004: Empty_001
+    100006: Empty_002
+    100008: Empty_003
+    100010: Empty_004
+    100012: Empty_005
+    100014: Empty_006
+    100016: Empty_007
+    100018: ensamble_brazo_-_Ball_Bearing_608ZZ-1
+    100020: ensamble_brazo_-_Ball_Bearing_608ZZ-2
+    100022: ensamble_brazo_-_barra-1
+    100024: ensamble_brazo_-_Brazo-1
+    100026: ensamble_brazo_-_pinza-brazo-1_Bottom_Plate_C-1
+    100028: ensamble_brazo_-_pinza-brazo-1_Gripper_Left_B-1
+    100030: ensamble_brazo_-_pinza-brazo-1_Gripper_Right_B-2
+    100032: ensamble_brazo_-_pinza-brazo-1_Idol_Gear_B-1
+    100034: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-1
+    100036: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-2
+    100038: ensamble_brazo_-_pinza-brazo-1_Servo_Gear_B-2
+    100040: ensamble_brazo_-_pinza-brazo-1_Top_Plate_C-1
+    100042: ensamble_brazo_-_soportefinal1-3
+    100044: ensamble_brazo_-_soportemidle_1_-1
+    100046: ensamble_brazo_-_soportemidle_2_-1
+    100048: ensamble_brazo_-_TowerPro_MG995-1
+    100050: ensamble_brazo_-_TowerPro_MG995-2
+    400000: //RootNode
+    400002: Empty
+    400004: Empty_001
+    400006: Empty_002
+    400008: Empty_003
+    400010: Empty_004
+    400012: Empty_005
+    400014: Empty_006
+    400016: Empty_007
+    400018: ensamble_brazo_-_Ball_Bearing_608ZZ-1
+    400020: ensamble_brazo_-_Ball_Bearing_608ZZ-2
+    400022: ensamble_brazo_-_barra-1
+    400024: ensamble_brazo_-_Brazo-1
+    400026: ensamble_brazo_-_pinza-brazo-1_Bottom_Plate_C-1
+    400028: ensamble_brazo_-_pinza-brazo-1_Gripper_Left_B-1
+    400030: ensamble_brazo_-_pinza-brazo-1_Gripper_Right_B-2
+    400032: ensamble_brazo_-_pinza-brazo-1_Idol_Gear_B-1
+    400034: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-1
+    400036: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-2
+    400038: ensamble_brazo_-_pinza-brazo-1_Servo_Gear_B-2
+    400040: ensamble_brazo_-_pinza-brazo-1_Top_Plate_C-1
+    400042: ensamble_brazo_-_soportefinal1-3
+    400044: ensamble_brazo_-_soportemidle_1_-1
+    400046: ensamble_brazo_-_soportemidle_2_-1
+    400048: ensamble_brazo_-_TowerPro_MG995-1
+    400050: ensamble_brazo_-_TowerPro_MG995-2
+    2100000: unnamed
+    2300000: ensamble_brazo_-_Ball_Bearing_608ZZ-1
+    2300002: ensamble_brazo_-_Ball_Bearing_608ZZ-2
+    2300004: ensamble_brazo_-_barra-1
+    2300006: ensamble_brazo_-_Brazo-1
+    2300008: ensamble_brazo_-_pinza-brazo-1_Bottom_Plate_C-1
+    2300010: ensamble_brazo_-_pinza-brazo-1_Gripper_Left_B-1
+    2300012: ensamble_brazo_-_pinza-brazo-1_Gripper_Right_B-2
+    2300014: ensamble_brazo_-_pinza-brazo-1_Idol_Gear_B-1
+    2300016: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-1
+    2300018: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-2
+    2300020: ensamble_brazo_-_pinza-brazo-1_Servo_Gear_B-2
+    2300022: ensamble_brazo_-_pinza-brazo-1_Top_Plate_C-1
+    2300024: ensamble_brazo_-_soportefinal1-3
+    2300026: ensamble_brazo_-_soportemidle_1_-1
+    2300028: ensamble_brazo_-_soportemidle_2_-1
+    2300030: ensamble_brazo_-_TowerPro_MG995-1
+    2300032: ensamble_brazo_-_TowerPro_MG995-2
+    2300034: //RootNode
+    3300000: ensamble_brazo_-_Ball_Bearing_608ZZ-1
+    3300002: ensamble_brazo_-_Ball_Bearing_608ZZ-2
+    3300004: ensamble_brazo_-_barra-1
+    3300006: ensamble_brazo_-_Brazo-1
+    3300008: ensamble_brazo_-_pinza-brazo-1_Bottom_Plate_C-1
+    3300010: ensamble_brazo_-_pinza-brazo-1_Gripper_Left_B-1
+    3300012: ensamble_brazo_-_pinza-brazo-1_Gripper_Right_B-2
+    3300014: ensamble_brazo_-_pinza-brazo-1_Idol_Gear_B-1
+    3300016: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-1
+    3300018: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-2
+    3300020: ensamble_brazo_-_pinza-brazo-1_Servo_Gear_B-2
+    3300022: ensamble_brazo_-_pinza-brazo-1_Top_Plate_C-1
+    3300024: ensamble_brazo_-_soportefinal1-3
+    3300026: ensamble_brazo_-_soportemidle_1_-1
+    3300028: ensamble_brazo_-_soportemidle_2_-1
+    3300030: ensamble_brazo_-_TowerPro_MG995-1
+    3300032: ensamble_brazo_-_TowerPro_MG995-2
+    3300034: //RootNode
+    4300000: ensamble_brazo_-_Brazo-1
+    4300002: ensamble_brazo_-_soportemidle_2_-1
+    4300004: ensamble_brazo_-_TowerPro_MG995-1
+    4300006: ensamble_brazo_-_soportemidle_1_-1
+    4300008: ensamble_brazo_-_soportefinal1-3
+    4300010: ensamble_brazo_-_pinza-brazo-1_Bottom_Plate_C-1
+    4300012: ensamble_brazo_-_pinza-brazo-1_Top_Plate_C-1
+    4300014: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-2
+    4300016: ensamble_brazo_-_pinza-brazo-1_Pivot_Arm_B-1
+    4300018: ensamble_brazo_-_pinza-brazo-1_Servo_Gear_B-2
+    4300020: ensamble_brazo_-_pinza-brazo-1_Gripper_Right_B-2
+    4300022: ensamble_brazo_-_pinza-brazo-1_Idol_Gear_B-1
+    4300024: ensamble_brazo_-_pinza-brazo-1_Gripper_Left_B-1
+    4300026: ensamble_brazo_-_TowerPro_MG995-2
+    4300028: ensamble_brazo_-_Ball_Bearing_608ZZ-2
+    4300030: ensamble_brazo_-_Ball_Bearing_608ZZ-1
+    4300032: ensamble_brazo_-_barra-1
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

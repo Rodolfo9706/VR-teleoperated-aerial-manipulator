@@ -1,0 +1,2 @@
+pos_data
+-DCATKIN_DEVEL_PREFIX=/home/lapyr/localpos/devel -DCMAKE_INSTALL_PREFIX=/home/lapyr/localpos/install -G Unix Makefiles

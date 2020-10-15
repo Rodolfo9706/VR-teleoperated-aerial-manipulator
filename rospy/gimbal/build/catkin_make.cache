@@ -1,0 +1,2 @@
+brazo
+-DCATKIN_DEVEL_PREFIX=/home/lapyr/gimbal/devel -DCMAKE_INSTALL_PREFIX=/home/lapyr/gimbal/install -G Unix Makefiles

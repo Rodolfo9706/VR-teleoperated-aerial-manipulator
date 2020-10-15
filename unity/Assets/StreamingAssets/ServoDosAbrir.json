@@ -1,0 +1,7 @@
+{
+	"op": "publish",
+	"topic": "servo",
+	"msg": {
+		"data": 3
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"op": "publish",
+	"topic": "brazo_data",
+	"msg": {
+		"data": "siii ja la"
+	}
+}

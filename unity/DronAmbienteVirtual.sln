@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronAmbienteVirtual", "DronAmbienteVirtual.csproj", "{A9EECB0C-3B1E-64B7-3BD3-08E2700819CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronAmbienteVirtual.Plugins", "DronAmbienteVirtual.Plugins.csproj", "{D8E0C4AC-1E69-DFB6-D3D0-DC90A7C28DF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronAmbienteVirtual.Editor.Plugins", "DronAmbienteVirtual.Editor.Plugins.csproj", "{8F7C161B-419F-BC8D-404F-15B87A07E7DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronAmbienteVirtual.Editor", "DronAmbienteVirtual.Editor.csproj", "{29319D23-E45D-B6A8-2241-535E42404DBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9EECB0C-3B1E-64B7-3BD3-08E2700819CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EECB0C-3B1E-64B7-3BD3-08E2700819CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EECB0C-3B1E-64B7-3BD3-08E2700819CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EECB0C-3B1E-64B7-3BD3-08E2700819CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8E0C4AC-1E69-DFB6-D3D0-DC90A7C28DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8E0C4AC-1E69-DFB6-D3D0-DC90A7C28DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8E0C4AC-1E69-DFB6-D3D0-DC90A7C28DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8E0C4AC-1E69-DFB6-D3D0-DC90A7C28DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F7C161B-419F-BC8D-404F-15B87A07E7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F7C161B-419F-BC8D-404F-15B87A07E7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F7C161B-419F-BC8D-404F-15B87A07E7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F7C161B-419F-BC8D-404F-15B87A07E7DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29319D23-E45D-B6A8-2241-535E42404DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29319D23-E45D-B6A8-2241-535E42404DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29319D23-E45D-B6A8-2241-535E42404DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29319D23-E45D-B6A8-2241-535E42404DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

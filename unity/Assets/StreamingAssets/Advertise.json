@@ -1,0 +1,5 @@
+{
+  "op": "advertise",
+  "topic": "servo",
+  "type": "std_msgs/String"
+}

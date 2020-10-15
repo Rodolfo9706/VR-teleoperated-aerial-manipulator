@@ -1,0 +1,8 @@
+prefix=/home/lapyr/localpos/devel
+
+Name: pos_data
+Description: Description of pos_data
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

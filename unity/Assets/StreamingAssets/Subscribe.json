@@ -1,0 +1,6 @@
+{
+  "op": "subscribe",
+  "topic": "servo",
+  "type": "std_msgs/String"
+}
+
