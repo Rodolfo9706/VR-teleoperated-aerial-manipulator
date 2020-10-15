@@ -1,2 +1,2 @@
-# PX4-ROS-UNITY
+# Teleoperated aerial manipulator and its avatar.
  
