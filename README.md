@@ -1,6 +1,8 @@
 # Teleoperated aerial manipulator and its avatar.
  
- To run the gazebo part it is necessary to have the following packages
+ rverdin@cio.mx
+ 
+ To run the gazebo part it is necessary to have the following packages:
 
 gazebo simulation:
 https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
@@ -23,5 +25,10 @@ c#
 
 RUN program
 Once the px4 Firmware is downloaded replace the following files:
+replace the 
+
+Replace the typhoon_h480 folder located in src / Firmware / tools / sitl_gazebo / models with the one located in Firmware_verdin of the same name.
+Replace rate_control.cpp located at src / Firmware / src / modules / mc_rate_control / ratecontrol
+do the same with logger and vmount
 
  
