@@ -31,4 +31,27 @@ Replace the typhoon_h480 folder located in src / Firmware / tools / sitl_gazebo 
 Replace rate_control.cpp located at src / Firmware / src / modules / mc_rate_control / ratecontrol
 do the same with logger and vmount
 
- 
+
+workspaces for rospy
+For this step, you need the knowledge to create a workspace using rospy 
+Once created you will only need the .py files
+
+To run roslaunch it is necessary to run in the terminal:
+
+$source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+$export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+$export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+
+$roslaunch px4 mavros posix sitl.launch vehicle:=typhoon h480
+
+The aerial-manipulator deal model will open immediately,  to control the vehicle you can use qgroundcontrol and arm.
+
+
+VR comunnication:
+To control it with the virtual environment you need to run the model in unity, once downloaded.
+Run the topics: $rosrun pos_data pos_data.py
+                $rosrun brazo brazo.py
+Runwebsocket:
+$roslaunch rosbridge_server rosbridge_websocket.launch
+
+
