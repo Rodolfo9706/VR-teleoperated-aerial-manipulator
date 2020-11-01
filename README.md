@@ -55,3 +55,8 @@ Runwebsocket:
 $roslaunch rosbridge_server rosbridge_websocket.launch
 
 
+
+If you have any problem with stl package or dae package send me a mail.
+
+
+
