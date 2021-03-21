@@ -42,7 +42,8 @@ $source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 $export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 $export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 
-$roslaunch px4 mavros posix sitl.launch vehicle:=typhoon h480
+$roslaunch px4 mavros posix_sitl.launch 
+_vehicle:=typhoonh480
 
 The aerial-manipulator deal model will open immediately,  to control the vehicle you can use qgroundcontrol and arm.
 
@@ -59,4 +60,5 @@ $roslaunch rosbridge_server rosbridge_websocket.launch
 If you have any problem with stl package or dae package send me a mail.
 
 
+![The-avatar-and-the-virtual-world-made-in-Unity](https://user-images.githubusercontent.com/58195148/111925024-bdc77a80-8a6c-11eb-9424-a3ea9762f9c6.png)
 
