@@ -37,6 +37,8 @@ Once the folders have been replaced, run the following line in the terminal insi
 
 ```sudo make px4_sitl gazebo_typhoon_h480```
 
+--------------------------------------------------------------------------------------
+
 workspaces for rospy
 For this step, you need the knowledge to create a workspace using rospy 
 Once created you will only need the .py files
