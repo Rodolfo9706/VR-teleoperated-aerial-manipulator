@@ -1,16 +1,19 @@
 # Teleoperated aerial manipulator and its avatar.
- 
-[Texto en color azul](rverdin@cio.mx){: style="color: blue;"}
+ ([rverdin@cio.mx]){: style="color: blue;"}
  
 To run the gazebo part it is necessary to have the following packages:
 
 gazebo simulation:
-https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
-gazebo
+https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh gazebo
+
 px4 Firmware
+
 ROS melodic 
-mavros
+
+mavros:
+
 rosbridge weboscket  http://wiki.ros.org/rosbridge_suite
+
 qground control http://qgroundcontrol.com/
 
 You need to have knowledge of how to create a rospy workspace
