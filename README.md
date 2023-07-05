@@ -55,19 +55,22 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 roslaunch px4 posix_sitl.launch
 ```
-
-```$roslaunch px4 mavros posix_sitl.launch 
-_vehicle:=typhoonh480```
+To run aerialmanipulator please:
+```roslaunch px4 mavros posix_sitl.launch_vehicle:=typhoonh480```
 
 The aerial-manipulator deal model will open immediately,  to control the vehicle you can use qgroundcontrol and arm.
+--------------------------------------------------------------------------------------
 
+#### VR comunnication:
 
-VR comunnication:
 To control it with the virtual environment you need to run the model in unity, once downloaded.
-Run the topics: $rosrun pos_data pos_data.py
-                $rosrun brazo brazo.py
+Run the topics: 
+
+```rosrun pos_data pos_data.py```
+```rosrun brazo brazo.py```
+
 Runwebsocket:
-$roslaunch rosbridge_server rosbridge_websocket.launch
+```roslaunch rosbridge_server rosbridge_websocket.launch```
 
 
 
