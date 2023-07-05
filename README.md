@@ -4,13 +4,10 @@
  
 To run the gazebo simulation part it is necessary to have the following packages:
 
-gazebo - px4 Firmware - mavros
-
-ROS melodic: http://wiki.ros.org/melodic/Installation/Ubuntu
-
-rosbridge weboscket:  http://wiki.ros.org/rosbridge_suite
-
-qground control http://qgroundcontrol.com/
+• gazebo - px4 Firmware - mavros
+• ROS melodic: http://wiki.ros.org/melodic/Installation/Ubuntu
+• rosbridge weboscket:  http://wiki.ros.org/rosbridge_suite
+• qground control http://qgroundcontrol.com/
 
 please clone the following firmware into your ubuntu repository: with git clone
  ```https://github.com/Rodolfo9706/Firmware.git```
