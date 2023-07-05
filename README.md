@@ -1,8 +1,8 @@
 # Teleoperated aerial manipulator and its avatar.
  
- rverdin@cio.mx
+[Texto en color azul](rverdin@cio.mx){: style="color: blue;"}
  
- To run the gazebo part it is necessary to have the following packages:
+To run the gazebo part it is necessary to have the following packages:
 
 gazebo simulation:
 https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
@@ -15,8 +15,8 @@ qground control http://qgroundcontrol.com/
 
 You need to have knowledge of how to create a rospy workspace
  
- https://github.com/Rodolfo9706/Firmware.git
- https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html#rosgazebo
+ ```https://github.com/Rodolfo9706/Firmware.git```
+ ```https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html``` #rosgazebo
  
 Unity VR:
 unity 
