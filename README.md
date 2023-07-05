@@ -1,5 +1,6 @@
 # Teleoperated aerial manipulator and its avatar.
- ([rverdin@cio.mx]){: style="color: blue;"}
+
+ [rverdin@cio.mx]
  
 To run the gazebo part it is necessary to have the following packages:
 
@@ -30,9 +31,11 @@ RUN program
 Once the px4 Firmware is downloaded replace the following files:
 replace the 
 
-Replace the typhoon_h480 folder located in src / Firmware / tools / sitl_gazebo / models with the one located in Firmware_verdin of the same name.
-Replace rate_control.cpp located at src / Firmware / src / modules / mc_rate_control / ratecontrol
-do the same with logger and vmount
+Replace the typhoon_h480 folder located in ```src / Firmware / tools / sitl_gazebo / models``` with the one located in ```Firmware```.
+
+Replace rate_control.cpp located in ```src / Firmware / src / modules / mc_rate_control / ratecontrol```
+
+do the same with logger and vmount located in ```src / Firmware / src / modules /```
 
 
 workspaces for rospy
