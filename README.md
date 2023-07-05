@@ -15,11 +15,12 @@ To run the gazebo simulation part it is necessary to have the following packages
 please clone the following firmware into your ubuntu repository: with git clone
  ```https://github.com/Rodolfo9706/Firmware.git```
 
-Once cloned, open in the terminal the address of the firmware folder and run the following line: ```make px4_sitl gazebo```
+Once cloned, open in the terminal the address of the firmware folder and run the following line: ```make px4_sitl gazebo``` add sudo if is necessary.
 
  
 Skip this step, only continue if you had problem installing mavros-px4-gazebo: ```https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html``` #rosgazebo
  
+------------------------------------------------------------------------------------
 
 Compile PX4 Firmware
 
@@ -32,8 +33,9 @@ replace the
 
 •Do the same with logger and vmount located in ```src / Firmware / src / modules /```
 
+Once the folders have been replaced, run the following line in the terminal inside the Firmware folder:
 
-
+```sudo make px4_sitl gazebo_typhoon_h480```
 
 workspaces for rospy
 For this step, you need the knowledge to create a workspace using rospy 
