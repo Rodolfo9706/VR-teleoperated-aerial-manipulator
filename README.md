@@ -4,30 +4,35 @@
  
 To run the gazebo simulation part it is necessary to have the following packages:
 
-• gazebo - px4 Firmware - mavros
+• gazebo - px4 Firmware - mavros: https://docs.px4.io/main/en/ros/mavros_installation.html
+
 • ROS melodic: http://wiki.ros.org/melodic/Installation/Ubuntu
+
 • rosbridge weboscket:  http://wiki.ros.org/rosbridge_suite
+
 • qground control http://qgroundcontrol.com/
 
 please clone the following firmware into your ubuntu repository: with git clone
  ```https://github.com/Rodolfo9706/Firmware.git```
- 
- ```https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html``` #rosgazebo
- 
-Unity VR:
-unity 
-visual studio
-c#
 
-RUN program
+Once cloned, open in the terminal the address of the firmware folder and run the following line: ```make px4_sitl gazebo```
+
+ 
+Skip this step, only continue if you had problem installing mavros-px4-gazebo: ```https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html``` #rosgazebo
+ 
+
+Compile PX4 Firmware
+
 Once the px4 Firmware is downloaded replace the following files:
 replace the 
 
-Replace the typhoon_h480 folder located in ```src / Firmware / tools / sitl_gazebo / models``` with the one located in ```Firmware```.
+•Replace the typhoon_h480 folder located in ```src / Firmware / tools / sitl_gazebo / models``` with the one located in ```Firmware```.
 
-Replace rate_control.cpp located in ```src / Firmware / src / modules / mc_rate_control / ratecontrol```
+•Replace rate_control.cpp located in ```src / Firmware / src / modules / mc_rate_control / ratecontrol```.
 
-do the same with logger and vmount located in ```src / Firmware / src / modules /```
+•Do the same with logger and vmount located in ```src / Firmware / src / modules /```
+
+
 
 
 workspaces for rospy
