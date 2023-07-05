@@ -56,8 +56,8 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic
 roslaunch px4 posix_sitl.launch
 ```
 
-$roslaunch px4 mavros posix_sitl.launch 
-_vehicle:=typhoonh480
+```$roslaunch px4 mavros posix_sitl.launch 
+_vehicle:=typhoonh480```
 
 The aerial-manipulator deal model will open immediately,  to control the vehicle you can use qgroundcontrol and arm.
 
