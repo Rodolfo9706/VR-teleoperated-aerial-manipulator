@@ -46,9 +46,15 @@ Once created you will only need the .py files
 
 To run roslaunch it is necessary to run in the terminal:
 
-$source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
-$export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-$export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+
+```cd <PX4-Autopilot_clone>
+DONT_RUN=1 make px4_sitl_default gazebo-classic
+source ~/catkin_ws/devel/setup.bash    # (optional)
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+roslaunch px4 posix_sitl.launch
+```
 
 $roslaunch px4 mavros posix_sitl.launch 
 _vehicle:=typhoonh480
