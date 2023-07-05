@@ -22,7 +22,7 @@ Skip this step, only continue if you had problem installing mavros-px4-gazebo: `
  
 ------------------------------------------------------------------------------------
 
-Compile PX4 Firmware
+#Compile PX4 Firmware
 
 Once the px4 Firmware is downloaded replace the following files:
 replace the 
@@ -38,6 +38,7 @@ Once the folders have been replaced, run the following line in the terminal insi
 ```sudo make px4_sitl gazebo_typhoon_h480```
 
 --------------------------------------------------------------------------------------
+##ROSLAUNCH execution 
 
 workspaces for rospy
 For this step, you need the knowledge to create a workspace using rospy 
