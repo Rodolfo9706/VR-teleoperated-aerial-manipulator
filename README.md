@@ -2,7 +2,7 @@
 
  [rverdin@cio.mx] 
 
- paper -- doi: 10.1109/ICUAS51884.2021.9476884.
+ aerial manípulator paper --- DOI: [10.1109/ICUAS51884.2021.947688]
  
 To run the gazebo simulation part it is necessary to have the following packages:
 
