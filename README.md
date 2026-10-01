@@ -1,136 +1,180 @@
-# 🚁 Teleoperated Aerial Manipulator & Virtual Reality Avatar
+# Teleoperated Aerial Manipulator and its Virtual Reality Avatar
 
-[![Paper DOI](https://img.shields.io/badge/IEEE-10.1109%2FICUAS51884.2021.9476884-blue)](https://doi.org/10.1109/ICUAS51884.2021.9476884)
-[![Video Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red)](https://www.youtube.com/watch?v=Ipo-vKNvP8k)
-[![ROS Version](https://img.shields.io/badge/ROS-Melodic-brightgreen)](http://wiki.ros.org/melodic)
-[![Autopilot](https://img.shields.io/badge/PX4-Autopilot-orange)](https://px4.io/)
+[![Paper](https://img.shields.io/badge/IEEE-10.1109%2FICUAS51884.2021.9476884-blue)](https://doi.org/10.1109/ICUAS51884.2021.9476884)
+[![Video](https://img.shields.io/badge/YouTube-Demo-red)](https://www.youtube.com/watch?v=Ipo-vKNvP8k)
+[![ROS](https://img.shields.io/badge/ROS-Melodic-brightgreen)](http://wiki.ros.org/melodic)
+[![PX4](https://img.shields.io/badge/PX4-Autopilot-orange)](https://px4.io/)
 
-Official repository for **"Teleoperated aerial manipulator and its avatar. Communication, system's interconnection, and virtual world"** presented at the *2021 International Conference on Unmanned Aircraft Systems (ICUAS)*.
+Code accompanying the paper **"Teleoperated aerial manipulator and its avatar. Communication, system's interconnection, and virtual world"**, presented at the *2021 International Conference on Unmanned Aircraft Systems (ICUAS)*.
 
----
+## Contents
 
-## 📌 Table of Contents
-- [Overview](#-overview)
-- [System Architecture](#-system-architecture)
-- [Prerequisites](#-prerequisites)
-- [Installation & Setup](#-installation--setup)
-- [Usage & Execution](#-usage--execution)
-- [Media & Demos](#-media--demos)
-- [Citation](#-citation)
-- [Authors & Acknowledgments](#-authors--acknowledgments)
+- [Overview](#overview)
+- [System architecture](#system-architecture)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Future work](#future-work)
+- [Citation](#citation)
+- [Authors and acknowledgments](#authors-and-acknowledgments)
 
----
+## Overview
 
-## 📖 Overview
+A human-in-the-loop system to teleoperate a semi-autonomous aerial manipulator through a virtual reality (VR) interface, together with an **avatar**: a virtual copy of the robot that replicates its motion in a Unity world as fast as processing and communication allow.
 
-This project implements a **human-in-the-loop teleoperation system** for a semi-autonomous aerial manipulator using a **Virtual Reality (VR) avatar**. The complete framework integrates:
-- **SITL Simulation**: Typhoon H480 hexarotor model with a mounted robotic manipulator arm simulated in Gazebo Classic.
-- **Control Algorithm**: Geometric tracking control implemented in PX4 firmware to stabilize the UAV against dynamic disturbances from the arm and load manipulations.
-- **Virtual Reality Immersion**: Unity-driven VR environment providing 2D/3D visual feedback and HTC Vive controller teleoperation.
-- **Communication Pipeline**: Bi-directional real-time data transmission over WebSockets using `rosbridge_suite` and MAVROS.
+This repository covers the first part of the project, performed in **software-in-the-loop (SITL)** simulation. It includes:
 
----
+- **Aerial manipulator model** in Gazebo, connected to the PX4 firmware.
+- **Geometric tracking control** (SE(3)) implemented in PX4 to stabilize the UAV against the forces and moments exerted by the arm and the payload.
+- **Avatar and virtual world** in Unity 3D, operated with an HTC Vive headset and controllers.
+- **Communication** between Ubuntu (Gazebo/PX4) and Windows (Unity) over the Internet using MAVROS and `rosbridge_suite` (WebSockets).
 
-## 🏗 System Architecture
+The operator commands the position references of the UAV and the joint angles of the manipulator arm.
 
-The system establishes real-time interconnection between the physical/simulated robot in Linux (Ubuntu) and the VR environment in Windows:
+## System architecture
 
-+----------------------------------+            +----------------------------------+
-|         VR Environment           |            |       UAV Simulator (Gazebo)     |
-|            (Unity)               |            |          & PX4 Firmware          |
-|  - 3D Immersion (HTC Vive)       | WebSockets |  - Geometric Control Algorithm   |
-|  - 2D/3D View & Avatar           | <========> |  - MAVROS Node                   |
-|  - Subscriber: Local Position    | (rosbridge)|  - rospy Nodes (pos_data, brazo) |
-|  - Publisher: Arm Angles         |            |  - Typhoon H480 Model            |
-+----------------------------------+            +----------------------------------+
-
-
----
-
-## ⚙️ Prerequisites
-
-### Software Requirements
-| Component | Supported Version / Resource |
-| :--- | :--- |
-| **Operating System** | Ubuntu 18.04 LTS (Gazebo/PX4) & Windows 10 (Unity VR) |
-| **ROS** | [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) |
-| **Autopilot / Simulator** | PX4 Autopilot & Gazebo Classic |
-| **Bridge Protocol** | [rosbridge_suite](http://wiki.ros.org/rosbridge_suite) |
-| **Ground Station** | [QGroundControl](http://qgroundcontrol.com/) |
-| **VR Engine** | Unity 3D with HTC Vive support |
-
----
-
-## 🚀 Installation & Setup
-
-### 1. Clone the Firmware Repository
-Clone the modified PX4 firmware repository to your local workspace:
-```bash
-git clone [https://github.com/Rodolfo9706/Firmware.git](https://github.com/Rodolfo9706/Firmware.git)
+```text
+ Windows 10                                        Ubuntu 18.04
++------------------------------+                 +--------------------------------+
+|  Unity 3D (VR environment)   |   WebSocket     |  ROS Melodic + MAVROS          |
+|  - HTC Vive teleoperation    | <=============> |  - rosbridge_server            |
+|  - Avatar (2D/3D views)      |   (rosbridge)   |  - pos_data.py  (position)     |
+|  - Subscribes: vehicle pose  |                 |  - brazo.py     (arm angles)   |
+|  - Arm angle commands        |                 |  - Gazebo + PX4 SITL           |
++------------------------------+                 |  - QGroundControl              |
+                                                 +--------------------------------+
 ```
 
-### 2. File Replacement Setup
-Before compiling, replace the custom files inside your PX4 workspace by running the following commands:
+- **Vehicle position:** the `LocalPosition` MAVROS topic is read by `pos_data.py` and republished so Unity can move the avatar.
+- **Manipulator:** `brazo.py` publishes three variables per arm joint through the `MountControl` topic; Gazebo moves the arm accordingly and Unity mirrors it.
+
+## Requirements
+
+| Component | Version / resource |
+| :-- | :-- |
+| Simulation host OS | Ubuntu 18.04 LTS |
+| VR host OS | Windows 10 |
+| ROS | [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) |
+| Autopilot and simulator | PX4 Firmware (SITL) and Gazebo |
+| ROS-Unity bridge | [rosbridge_suite](http://wiki.ros.org/rosbridge_suite) |
+| Ground station | [QGroundControl](http://qgroundcontrol.com/) |
+| VR | Unity 3D and HTC Vive |
+
+PX4, MAVROS and Gazebo must already be installed and working. If you have problems, follow the [PX4 ROS/Gazebo guide](https://docs.px4.io/main/en/simulation/ros_interface.html).
+
+> **Note:** this code was developed against the PX4 Firmware layout of the ROS Melodic era (`Tools/sitl_gazebo`). Newer PX4 releases (`Tools/simulation/gazebo-classic`) use different paths and have not been tested with these files.
+
+## Installation
+
+### 1. Clone this repository
 
 ```bash
-# Replace the typhoon_h480 model
-cp -r Firmware/typhoon_h480 src/Firmware/tools/sitl_gazebo/models/
-
-# Replace the rate controller script
-cp Firmware/rate_control.cpp src/Firmware/src/modules/mc_rate_control/ratecontrol/
-
-# Replace the logger and vmount modules
-cp -r Firmware/logger src/Firmware/src/modules/
-cp -r Firmware/vmount src/Firmware/src/modules/
+git clone https://github.com/Rodolfo9706/VR-teleoperated-aerial-manipulator.git
 ```
 
-### 3. Compile Firmware
-Open a terminal inside the `Firmware` folder and build the simulation environment:
+### 2. Copy the custom files into your PX4 workspace
+
+Set `PX4_DIR` to your PX4 Firmware folder, then copy the modified files:
 
 ```bash
-sudo make px4_sitl gazebo_typhoon_h480
+export PX4_DIR=~/src/Firmware   # adjust to your setup
 
+# Aerial manipulator model
+cp -r VR-teleoperated-aerial-manipulator/typhoon_h480 $PX4_DIR/Tools/sitl_gazebo/models/
+
+# Geometric controller (rate/attitude control module)
+cp VR-teleoperated-aerial-manipulator/rate_control.cpp $PX4_DIR/src/modules/mc_rate_control/
+
+# Logger and vmount modules
+cp -r VR-teleoperated-aerial-manipulator/logger $PX4_DIR/src/modules/
+cp -r VR-teleoperated-aerial-manipulator/vmount $PX4_DIR/src/modules/
 ```
 
-cd <PX4-Autopilot_clone>
-DONT_RUN=1 make px4_sitl_default gazebo-classic
+<!-- TODO(author): verify these destination paths against your actual repo layout. -->
+
+### 3. Build the firmware
+
+```bash
+cd $PX4_DIR
+DONT_RUN=1 make px4_sitl_default gazebo
+```
+
+### 4. Build the ROS nodes
+
+Place the `pos_data` and `brazo` packages in your catkin workspace and build:
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+
+<!-- TODO(author): state where pos_data and brazo live in this repo. -->
+
+## Usage
+
+### 1. Launch the SITL simulation
+
+```bash
+cd $PX4_DIR
 source ~/catkin_ws/devel/setup.bash
-source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd)$(pwd)/build/px4_sitl_default
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 
-# Launch the Aerial Manipulator
-roslaunch px4 mavros posix_sitl.launch_vehicle:=typhoonh480
-
-# Terminal 1 & 2: Launch telemetry topics
-rosrun pos_data pos_data.py
-rosrun brazo brazo.py
-
-# Terminal 3: Launch WebSocket Bridge for VR
-roslaunch rosbridge_server rosbridge_websocket.launch
-
-### Step 2: Run ROS Nodes & WebSocket Server
-In separate terminals, run the communication nodes:
-
-```bash
-# Terminal 1: Position telemetry topic
-rosrun pos_data pos_data.py
-
-# Terminal 2: Arm control topic
-rosrun brazo brazo.py
-
-# Terminal 3: WebSocket Bridge for VR
-roslaunch rosbridge_server rosbridge_websocket.launch
-
+roslaunch px4 mavros_posix_sitl.launch vehicle:=typhoon_h480
 ```
 
+Open QGroundControl to arm and command the vehicle.
+
+### 2. Start the communication nodes
+
+In three separate terminals:
+
+```bash
+# Terminal 1: vehicle position topic
+rosrun pos_data pos_data.py
+
+# Terminal 2: manipulator arm topic
+rosrun brazo brazo.py
+
+# Terminal 3: WebSocket bridge for Unity
+roslaunch rosbridge_server rosbridge_websocket.launch
+```
+
+rosbridge listens on port `9090` by default (`ws://<ROS_MASTER_IP>:9090`).
+
+### 3. Run the Unity VR avatar
+
+On the Windows machine, open the Unity project, set the IP address of the Ubuntu (ROS master) machine in the connection script, connect the HTC Vive and press Play.
+
+<!-- TODO(author): add the Unity project folder name and the exact script/field where the IP is set. -->
+
+## Results
+
+Experiments were run in SITL (Gazebo on an Intel i7-7820HK laptop with 32 GB RAM and a GTX 1070; Unity on an AMD A12-9720P laptop with 12 GB RAM and no GPU).
+
+- **Control:** the geometric controller tracked position and attitude references with and without payload, under teleoperated translations, rotations and arm motion.
+- **Latency:** the avatar followed the simulated robot with a delay of about **0.5 s** over the network.
+- **Pick and place:** a 160 g object was picked up and transported, showing robustness to mass variations and to the forces and moments produced by the arm.
+
+See the [supplementary video](https://www.youtube.com/watch?v=Ipo-vKNvP8k) for the experiments.
+
+## Future work
+
+- Experiments on the real aerial manipulator prototype built at the lab.
+- Vision-based SLAM to reconstruct the virtual environment with real dimensional and image data.
+- A more intuitive sensorial VR system, plus faster networking and a different communication protocol to reduce latency.
+
+## Citation
+
+```bibtex
 @INPROCEEDINGS{9476884,
-  author={Verdín, Rodolfo and Ramírez, Germán and Rivera, Carlos and Flores, Gerardo},
-  booktitle={2021 International Conference on Unmanned Aircraft Systems (ICUAS)}, 
-  title={Teleoperated aerial manipulator and its avatar. Communication, system's interconnection, and virtual world}, 
+  author={Verd{\'i}n, Rodolfo and Ram{\'i}rez, Germ{\'a}n and Rivera, Carlos and Flores, Gerardo},
+  booktitle={2021 International Conference on Unmanned Aircraft Systems (ICUAS)},
+  title={Teleoperated aerial manipulator and its avatar. Communication, system's interconnection, and virtual world},
   year={2021},
-  volume={},
-  number={},
-  pages={1488-1493},
   doi={10.1109/ICUAS51884.2021.9476884}
 }
+```
