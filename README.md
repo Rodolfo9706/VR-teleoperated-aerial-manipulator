@@ -7,6 +7,8 @@
 
 Code accompanying the paper **"Teleoperated aerial manipulator and its avatar. Communication, system's interconnection, and virtual world"**, presented at the *2021 International Conference on Unmanned Aircraft Systems (ICUAS)*.
 
+Contact: rverdin@cio.mx
+
 ## Contents
 
 - [Overview](#overview)
@@ -18,6 +20,7 @@ Code accompanying the paper **"Teleoperated aerial manipulator and its avatar. C
 - [Future work](#future-work)
 - [Citation](#citation)
 - [Authors and acknowledgments](#authors-and-acknowledgments)
+- [Media](#media)
 
 ## Overview
 
@@ -61,37 +64,37 @@ The operator commands the position references of the UAV and the joint angles of
 | Ground station | [QGroundControl](http://qgroundcontrol.com/) |
 | VR | Unity 3D and HTC Vive |
 
-PX4, MAVROS and Gazebo must already be installed and working. If you have problems, follow the [PX4 ROS/Gazebo guide](https://docs.px4.io/main/en/simulation/ros_interface.html).
+PX4, MAVROS and Gazebo must already be installed and working. If you have problems, follow the [MAVROS installation guide](https://docs.px4.io/main/en/ros/mavros_installation.html) and the [PX4 Ubuntu development environment guide](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html).
 
 > **Note:** this code was developed against the PX4 Firmware layout of the ROS Melodic era (`Tools/sitl_gazebo`). Newer PX4 releases (`Tools/simulation/gazebo-classic`) use different paths and have not been tested with these files.
 
 ## Installation
 
-### 1. Clone this repository
+### 1. Get the modified firmware files
+
+Clone the modified PX4 Firmware into your Ubuntu machine:
 
 ```bash
-git clone https://github.com/Rodolfo9706/VR-teleoperated-aerial-manipulator.git
+git clone https://github.com/Rodolfo9706/Firmware.git
 ```
 
 ### 2. Copy the custom files into your PX4 workspace
 
-Set `PX4_DIR` to your PX4 Firmware folder, then copy the modified files:
+Set `PX4_DIR` to your own PX4 Firmware folder, then copy the modified files from the cloned `Firmware` folder:
 
 ```bash
 export PX4_DIR=~/src/Firmware   # adjust to your setup
 
 # Aerial manipulator model
-cp -r VR-teleoperated-aerial-manipulator/typhoon_h480 $PX4_DIR/Tools/sitl_gazebo/models/
+cp -r Firmware/typhoon_h480 $PX4_DIR/Tools/sitl_gazebo/models/
 
-# Geometric controller (rate/attitude control module)
-cp VR-teleoperated-aerial-manipulator/rate_control.cpp $PX4_DIR/src/modules/mc_rate_control/
+# Geometric controller
+cp Firmware/rate_control.cpp $PX4_DIR/src/modules/mc_rate_control/ratecontrol/
 
 # Logger and vmount modules
-cp -r VR-teleoperated-aerial-manipulator/logger $PX4_DIR/src/modules/
-cp -r VR-teleoperated-aerial-manipulator/vmount $PX4_DIR/src/modules/
+cp -r Firmware/logger $PX4_DIR/src/modules/
+cp -r Firmware/vmount $PX4_DIR/src/modules/
 ```
-
-<!-- TODO(author): verify these destination paths against your actual repo layout. -->
 
 ### 3. Build the firmware
 
@@ -100,9 +103,11 @@ cd $PX4_DIR
 DONT_RUN=1 make px4_sitl_default gazebo
 ```
 
+Do not use `sudo` unless your installation requires it.
+
 ### 4. Build the ROS nodes
 
-Place the `pos_data` and `brazo` packages in your catkin workspace and build:
+Create a catkin workspace with the `pos_data` and `brazo` packages (only the `.py` files, written with rospy) and build it:
 
 ```bash
 cd ~/catkin_ws
@@ -126,7 +131,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 roslaunch px4 mavros_posix_sitl.launch vehicle:=typhoon_h480
 ```
 
-Open QGroundControl to arm and command the vehicle.
+The aerial manipulator model opens in Gazebo. Use QGroundControl to arm and control the vehicle.
 
 ### 2. Start the communication nodes
 
@@ -178,3 +183,47 @@ See the [supplementary video](https://www.youtube.com/watch?v=Ipo-vKNvP8k) for t
   doi={10.1109/ICUAS51884.2021.9476884}
 }
 ```
+
+## Authors and acknowledgments
+
+Laboratorio de Percepción y Robótica, Centro de Investigaciones en Óptica (CIO), León, Guanajuato, México.
+
+Rodolfo Verdín, Germán Ramírez, Carlos Rivera and Gerardo Flores (corresponding author, gflores@cio.mx).
+
+Partially supported by CONACYT-FORDECYT under grant 292399.
+
+If you have any problem with the STL or DAE packages, send me an email.
+
+## Media
+
+![The avatar and the virtual world made in Unity](https://user-images.githubusercontent.com/58195148/111925024-bdc77a80-8a6c-11eb-9424-a3ea9762f9c6.png)
+
+[![Watch the video](https://img.youtube.com/vi/Ipo-vKNvP8k/0.jpg)](https://www.youtube.com/watch?v=Ipo-vKNvP8k)
+
+<!-- Optional: uncomment after uploading the images to an images/ folder in the repo.
+
+<p align="center">
+  <img src="images/fig1_vr_immersion.png" width="700" alt="Teleoperation with HTC Vive, Unity world and Gazebo simulation">
+  <br>
+  <em>Teleoperation with HTC Vive (a), Unity virtual world (b) and Gazebo SITL simulation (c).</em>
+</p>
+
+<p align="center">
+  <img src="images/fig3_architecture.png" width="800" alt="System architecture diagram">
+  <br>
+  <em>System architecture.</em>
+</p>
+
+<p align="center">
+  <img src="images/fig9_pick_and_place.png" width="500" alt="Pick and place experiment">
+  <br>
+  <em>Pick and place experiment (160 g payload).</em>
+</p>
+
+<p align="center">
+  <img src="images/fig10_prototype.png" width="400" alt="Aerial manipulator prototype built at the lab">
+  <br>
+  <em>Aerial manipulator prototype built at the lab.</em>
+</p>
+
+-->
